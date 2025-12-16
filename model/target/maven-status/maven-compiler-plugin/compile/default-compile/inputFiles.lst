@@ -1,0 +1,6 @@
+/home/wwldmr/IdeaProjects/projectD/model/src/main/java/com/projectD/model/dto/SimDto.java
+/home/wwldmr/IdeaProjects/projectD/model/src/main/java/com/projectD/model/entity/SimCard.java
+/home/wwldmr/IdeaProjects/projectD/model/src/main/java/com/projectD/model/entity/User.java
+/home/wwldmr/IdeaProjects/projectD/model/src/main/java/com/projectD/model/enums/Role.java
+/home/wwldmr/IdeaProjects/projectD/model/src/main/java/com/projectD/model/enums/SimStatus.java
+/home/wwldmr/IdeaProjects/projectD/model/src/main/java/com/projectD/model/mapper/SimMapper.java
