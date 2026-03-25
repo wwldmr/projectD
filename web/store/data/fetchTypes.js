@@ -1,0 +1,4 @@
+export const FETCH_DATA_REQUEST = "data/FETCH_DATA_REQUEST"
+export const FETCH_DATA_SUCCESS = "data/FETCH_DATA_SUCCESS"
+export const FETCH_DATA_FAIL = "data/FETCH_DATA_FAIL"
+export const CLEAR_DATA_REQUEST = "data/CLEAR_DATA_REQUEST"
