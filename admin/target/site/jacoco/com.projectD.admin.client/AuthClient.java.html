@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthClient.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">admin</a> &gt; <a href="index.source.html" class="el_package">com.projectD.admin.client</a> &gt; <span class="el_source">AuthClient.java</span></div><h1>AuthClient.java</h1><pre class="source lang-java linenums">package com.projectD.admin.client;
+
+import com.projectD.admin.dto.LoginRequest;
+import com.projectD.admin.dto.UserDto;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.server.ResponseStatusException;
+import reactor.core.publisher.Mono;
+
+@Service
+@RequiredArgsConstructor
+public class AuthClient {
+    private final WebClient backendWebClient;
+
+    public Mono&lt;UserDto&gt; validate(LoginRequest request) {
+<span class="nc" id="L19">        return backendWebClient.post()</span>
+<span class="nc" id="L20">                .uri(&quot;/api/auth/validate&quot;)</span>
+<span class="nc" id="L21">                .bodyValue(request)</span>
+<span class="nc" id="L22">                .retrieve()</span>
+<span class="nc bnc" id="L23" title="All 4 branches missed.">                .onStatus(status -&gt; status.value() == 401 || status.value() == 403, response -&gt;</span>
+<span class="nc" id="L24">                        response.bodyToMono(String.class)</span>
+<span class="nc" id="L25">                                .flatMap(error -&gt; Mono.error(new ResponseStatusException(HttpStatus.UNAUTHORIZED, &quot;Bad credentials. &quot; + error)))</span>
+                )
+<span class="nc" id="L27">                .onStatus(HttpStatusCode::isError, response -&gt;</span>
+<span class="nc" id="L28">                        response.bodyToMono(String.class)</span>
+<span class="nc" id="L29">                                .flatMap(error -&gt; Mono.error(new ResponseStatusException(HttpStatus.BAD_GATEWAY, &quot;Authentication backend error. &quot; + error)))</span>
+                )
+<span class="nc" id="L31">                .bodyToMono(UserDto.class);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

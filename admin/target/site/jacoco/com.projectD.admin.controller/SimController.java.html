@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SimController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">admin</a> &gt; <a href="index.source.html" class="el_package">com.projectD.admin.controller</a> &gt; <span class="el_source">SimController.java</span></div><h1>SimController.java</h1><pre class="source lang-java linenums">package com.projectD.admin.controller;
+
+import com.projectD.admin.service.MultiSimBoxService;
+import com.projectD.admin.dto.SimDto;
+import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@RestController
+@RequestMapping(&quot;/api/sim-cards&quot;)
+@CrossOrigin(origins = &quot;http://localhost:3000&quot;, allowCredentials = &quot;true&quot;)
+@RequiredArgsConstructor
+public class SimController {
+    private final MultiSimBoxService multiSimBoxService;
+
+    @Operation(summary = &quot;Получить все симкарты&quot;)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public Flux&lt;SimDto&gt; getAllSimCards() {
+<span class="fc" id="L25">        return multiSimBoxService.getAllSimCards();</span>
+    }
+
+    @Operation(summary = &quot;Получить sim карту по id&quot;)
+    @GetMapping(value = &quot;/{id}&quot;, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Mono&lt;SimDto&gt; getSimCardById(@PathVariable String id) {
+<span class="fc" id="L31">        return multiSimBoxService.getSimCardById(id);</span>
+    }
+
+    @Operation(summary = &quot;Создать новую sim карту&quot;)
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
+    public Mono&lt;SimDto&gt; createSimCard(@Valid @RequestBody SimDto simDto) {
+<span class="fc" id="L38">        return multiSimBoxService.createSimCard(simDto);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

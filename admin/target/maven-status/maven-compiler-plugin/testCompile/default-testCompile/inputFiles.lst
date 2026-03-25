@@ -1,0 +1,5 @@
+/home/wwldmr/projects/projectD/admin/src/test/java/com/projectD/admin/config/SecurityConfigTest.java
+/home/wwldmr/projects/projectD/admin/src/test/java/com/projectD/admin/controller/AuthControllerTest.java
+/home/wwldmr/projects/projectD/admin/src/test/java/com/projectD/admin/controller/SimControllerTest.java
+/home/wwldmr/projects/projectD/admin/src/test/java/com/projectD/admin/service/MultiSimBoxServiceTest.java
+/home/wwldmr/projects/projectD/admin/src/test/java/com/projectD/admin/utils/JwtUtilsTest.java

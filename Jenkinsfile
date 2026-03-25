@@ -16,5 +16,10 @@ pipeline {
                 sh 'mvn clean verify'
             }
         }
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t projectd-admin:latest ./admin'
+            }
+        }
     }
 }

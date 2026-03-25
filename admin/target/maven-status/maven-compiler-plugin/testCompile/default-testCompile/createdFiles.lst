@@ -1,0 +1,5 @@
+com/projectD/admin/utils/JwtUtilsTest.class
+com/projectD/admin/config/SecurityConfigTest.class
+com/projectD/admin/service/MultiSimBoxServiceTest.class
+com/projectD/admin/controller/AuthControllerTest.class
+com/projectD/admin/controller/SimControllerTest.class

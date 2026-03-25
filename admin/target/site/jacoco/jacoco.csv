@@ -1,0 +1,17 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+admin,com.projectD.admin.client,AuthClient,60,0,4,0,11,0,8,0,6,0
+admin,com.projectD.admin.client,WebClientConfig,59,0,0,0,15,0,7,0,7,0
+admin,com.projectD.admin,AdminApplication,5,3,0,0,2,1,1,1,1,1
+admin,com.projectD.admin.controller,SimController,0,14,0,0,0,3,0,3,0,3
+admin,com.projectD.admin.controller,MainController,7,6,0,0,2,2,2,2,2,2
+admin,com.projectD.admin.controller,AuthController,0,18,0,0,0,3,0,2,0,2
+admin,com.projectD.admin.service,MultiSimBoxService,32,90,1,1,4,25,5,8,4,8
+admin,com.projectD.admin.dto,LoginRequest,0,9,0,0,0,1,0,1,0,1
+admin,com.projectD.admin.dto,JwtResponse,0,6,0,0,0,1,0,1,0,1
+admin,com.projectD.admin.dto,UserDto,0,12,0,0,0,3,0,1,0,1
+admin,com.projectD.admin.config,UserConfig,24,0,0,0,6,0,2,0,2,0
+admin,com.projectD.admin.config,SecurityConfig,0,96,0,0,0,18,0,7,0,7
+admin,com.projectD.admin.config,SwaggerConfig,44,0,0,0,15,0,2,0,2,0
+admin,com.projectD.admin.exceptions,Exception,4,0,0,0,2,0,1,0,1,0
+admin,com.projectD.admin.exceptions,AppError,14,0,0,0,5,0,1,0,1,0
+admin,com.projectD.admin.utils,JwtUtils,0,50,0,0,0,14,0,3,0,3
